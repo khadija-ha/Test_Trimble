@@ -39,7 +39,7 @@ class VisualisationHandler:
         #Update main criteria figure
         self.updatePlotFigure("main", "Evolution of the main criteria", x, y)
 
-    def updateTrain_LossEvolutionFigure(self,x,y):
+    def updateTrainLoss_EvolutionFigure(self,x,y):
         
         #Update main criteria figure
         self.updatePlotFigure("main", "Evolution of the train loss value", x, y)
