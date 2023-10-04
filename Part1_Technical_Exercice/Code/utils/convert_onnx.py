@@ -1,6 +1,6 @@
 import onnx
 import torch
-from model import CustomModel 
+from ..model import CustomModel 
 
 def convert():
     # Define class names
@@ -8,7 +8,7 @@ def convert():
     # Create an instance
     custom_model = CustomModel(class_names)
     # Load pre-trained weights
-    model_weights_path = 'model.pth'
+    model_weights_path = '/home/khadija/Test_Trimble/Part1_Technical_Exercice/Models/model_trimble.pth'
     custom_model.model.load_state_dict(torch.load(model_weights_path))
     # Set the model to evaluation mode
     custom_model.model.eval()
@@ -16,7 +16,7 @@ def convert():
     batch_size = 2
     input_tensor = torch.randn(batch_size, 3, 224, 224)  
     # Define the path to save the ONNX model
-    onnx_path = 'model_trimble.onnx'
+    onnx_path =  '/home/khadija/Test_Trimble/Part1_Technical_Exercice/Models/model_trimbel.onnx'
     # Export the custom model to ONNX format
     torch.onnx.export(
         custom_model.model,
