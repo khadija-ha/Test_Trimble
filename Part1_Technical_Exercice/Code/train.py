@@ -24,8 +24,8 @@ def main():
     model = model_obj.get_model()
     # Create Trainer instance
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    # Define the loss criterion (CrossEntropyLoss) for training
-    criterion = nn.CrossEntropyLoss()
+    # Define the loss criterion (BCE) for training
+    criterion = nn.BCELoss()
     # Define the optimizer (Stochastic Gradient Descent - SGD)
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     # Define a step learning rate scheduler

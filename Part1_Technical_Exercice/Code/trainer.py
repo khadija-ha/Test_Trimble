@@ -45,15 +45,16 @@ class Trainer:
                     with torch.set_grad_enabled(phase == 'train'):
                         outputs = self.model(inputs)
                         _, preds = torch.max(outputs, 1) # Get predicted class labels
-                        #labels = torch.tensor([[1.0 - label, label] for label in labels], dtype=torch.float32)
-                        #labels = labels.to(self.device)  # Déplacez les étiquettes sur le même dispositif que les sorties
+                        labels = torch.tensor([[1.0 - label, label] for label in labels], dtype=torch.float32)
+                        labels = labels.to(self.device)  # Déplacez les étiquettes sur le même dispositif que les sorties
                         loss = self.criterion(outputs, labels)
                         if phase == 'train':
                             self.optimizer.zero_grad()
                             loss.backward()
                             self.optimizer.step()  # Update model weights
                     running_loss += loss.item() * inputs.size(0)
-                    running_corrects += torch.sum(preds == labels.data)
+                    correct_preds = torch.sum(preds == torch.argmax(labels, dim=1))
+                    running_corrects += correct_preds
 
                 if phase == 'train':
                     self.scheduler.step()  # Adjust learning rate  
