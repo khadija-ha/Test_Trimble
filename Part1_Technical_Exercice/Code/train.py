@@ -12,7 +12,7 @@ def main():
     mean = [0.485, 0.456, 0.406]
     std = [0.229, 0.224, 0.225]
     # Specify the directory where the dataset is located
-    data_dir = '/media/khadija/data_ssd1/trimble/dataset1/Data/'
+    data_dir = '/home/khadija/Test_Trimble/Part1_Technical_Exercice/Models/'
     # Create CustomDataset instance
     dataset = CustomDataset(data_dir, mean, std)
     #image_datasets = dataset.get_datasets()
@@ -35,7 +35,7 @@ def main():
     # Train the model
     model = trainer.train_model()
     # Save the model
-    torch.save(model.state_dict(), 'model.pth')
+    torch.save(model.state_dict(), 'model_trimble.pth')
 
 if __name__ == "__main__":
     main()
