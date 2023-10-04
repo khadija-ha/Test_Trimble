@@ -31,11 +31,11 @@ def main():
     # Define a step learning rate scheduler
     step_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
     # Create a Trainer instance for training
-    trainer = Trainer(model, criterion, optimizer, step_lr_scheduler, dataloaders, dataset_sizes, device, num_epochs=50)
+    trainer = Trainer(model, criterion, optimizer, step_lr_scheduler, dataloaders, dataset_sizes, device, num_epochs=20)
     # Train the model
     model = trainer.train_model()
     # Save the model
-    torch.save(model.state_dict(), '/home/khadija/Test_Trimble/Part1_Technical_Exercice/Models/model_trimble.pth')
+    torch.save(model.state_dict(), '/data1/Test_Trimble/Part1_Technical_Exercice/Models/model_trimble.pth')
 
 if __name__ == "__main__":
     main()

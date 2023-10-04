@@ -3,7 +3,6 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import matplotlib.pyplot as plt
-import visdom
 from Visualisation import VisualisationHandler
 
 
@@ -27,23 +26,16 @@ class Evaluator:
                 with torch.no_grad():
                     image = image.to(self.device)
                     outputs = self.model(image)  # Forward pass through the model
-                    _, predicted = torch.max(outputs, 1) # Get the class with the highest probability
-                    predicted_class = predicted.item()
+                    # Get the predicted class and confidence score
+                    probabilities = outputs.cpu().numpy()
+                    predicted_class = torch.argmax(outputs).item()
+                    confidence_score = probabilities[0, predicted_class]
                     # Display the image and predicted class using matplotlib
                     plt.imshow(image.cpu().squeeze().permute(1, 2, 0).numpy())
-                    plt.title(f'Classe prédite : {self.get_class_name(predicted_class)}')
+                    plt.title(f'Predicted Class: {self.get_class_name(predicted_class)}, Confidence: {confidence_score:.2f}')
                     plt.axis('off')
                     plt.show()
 
-                # Call addImagesFigure to display the image in Visdom
-                # self.visualizer.addImagesFigure(
-                #     "main",
-                #     "Test Image",
-                #     f'Predicted Class: {self.get_class_name(predicted_class)}',
-                #     [image[0].cpu().numpy()],  # Convert to NumPy and remove batch dimension
-                #     6,
-                #     (150, 150, 150))
-    
     def load_transforms(self):
         # Define a series of image preprocessing transformations using torchvision
         return transforms.Compose(
