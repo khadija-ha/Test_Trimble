@@ -6,7 +6,7 @@ import os
 # Path to the folder containing the original images
 input_folder ='/media/khadija/data_ssd1/trimble/dataset/fields/'
 # Path to the folder where augmented images will be saved
-output_folder = '/media/khadija/data_ssd1/trimble/aug/ff/'
+output_folder = '/media/khadija/data_ssd1/trimble/aug/field/'
 os.makedirs(output_folder, exist_ok=True)
 # List all the image files in the input folder
 image_files = os.listdir(input_folder)

@@ -1,6 +1,6 @@
 import onnx
 import torch
-from ..model import CustomModel 
+from model import CustomModel
 
 def convert():
     # Define class names
