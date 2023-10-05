@@ -27,7 +27,7 @@ class Evaluator:
                     image = image.to(self.device)
                     outputs = self.model(image)  # Forward pass through the model
                     # Get the predicted class and confidence score
-                    print(outputs)
+                    #print(outputs)
                     probabilities = torch.softmax(outputs, dim=1).cpu().numpy()
                     predicted_class = torch.argmax(outputs).item()
                     confidence_score = probabilities[0, predicted_class]
