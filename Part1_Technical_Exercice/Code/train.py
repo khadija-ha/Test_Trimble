@@ -8,13 +8,11 @@ from torch.optim import lr_scheduler
 # Define your mean, std, and data_dir
 
 def main():
-    # Define mean and std values for data normalization
-    mean = [0.485, 0.456, 0.406]
-    std = [0.229, 0.224, 0.225]
+
     # Specify the directory where the dataset is located
-    data_dir = '/media/khadija/data_ssd1/trimble/aug/'
+    data_dir = '/media/khadija/data_ssd1/trimble/Augm/'
     # Create CustomDataset instance
-    dataset = CustomDataset(data_dir, mean, std)
+    dataset = CustomDataset(data_dir)
     #image_datasets = dataset.get_datasets()
     dataloaders = dataset.get_dataloader()
     dataset_sizes = dataset.get_dataset_sizes()
@@ -31,7 +29,7 @@ def main():
     # Define a step learning rate scheduler
     step_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
     # Create a Trainer instance for training
-    trainer = Trainer(model, criterion, optimizer, step_lr_scheduler, dataloaders, dataset_sizes, device, num_epochs=20)
+    trainer = Trainer(model, criterion, optimizer, step_lr_scheduler, dataloaders, dataset_sizes, device, num_epochs=40)
     # Train the model
     model = trainer.train_model()
     # Save the model
