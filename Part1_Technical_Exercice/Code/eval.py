@@ -8,9 +8,9 @@ from model import CustomModel
 
 def main():
     # Path to the pre-trained model
-    model_path = '/media/khadija/data_ssd1/trimble/Code/model.pth'
+    model_path = '/data1/Test_Trimble/Part1_Technical_Exercice/Models/model_trimble.pth'
     # Folder containing test images
-    test_folder = '/media/khadija/data_ssd1/trimble/dataset/test_images/'   
+    test_folder = '/media/khadija/data_ssd1/trimble/dataset1/test_images/'   
     # List of supported image file extensions
     valid_extensions = ['.jpg', '.jpeg', '.png']
     # Check if CUDA (GPU) is available 
