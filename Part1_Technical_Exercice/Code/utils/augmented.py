@@ -4,14 +4,14 @@ import os
 
 
 # Path to the folder containing the original images
-input_folder ='/media/khadija/data_ssd1/trimble/dataset/fields/'
+input_folder ='/media/khadija/data_ssd1/trimble/dataset/roads/'
 # Path to the folder where augmented images will be saved
-output_folder = '/media/khadija/data_ssd1/trimble/aug/field/'
+output_folder = '/media/khadija/data_ssd1/trimble/Augm/road/'
 os.makedirs(output_folder, exist_ok=True)
 # List all the image files in the input folder
 image_files = os.listdir(input_folder)
 # Desired number of augmented images
-target_count = 500
+target_count = 1000
 
 # Loop until the desired number of augmented images
 while len(image_files) < target_count:

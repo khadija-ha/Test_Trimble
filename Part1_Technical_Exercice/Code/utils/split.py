@@ -3,9 +3,9 @@ import shutil
 import random
 
 # Define paths to the source dataset folder and destination folders
-dataset_folder = '/media/khadija/data_ssd1/trimble/aug/'
-train_folder = '/media/khadija/data_ssd1/trimble/aug/train/'
-val_folder = '/media/khadija/data_ssd1/trimble/aug/val/'
+dataset_folder = '/media/khadija/data_ssd1/trimble/Augm/'
+train_folder = '/media/khadija/data_ssd1/trimble/Augm/train/'
+val_folder = '/media/khadija/data_ssd1/trimble/Augm/val/'
 
 # Create destination folders if they don't already exist
 os.makedirs(train_folder, exist_ok=True)
@@ -15,7 +15,7 @@ os.makedirs(val_folder, exist_ok=True)
 train_split_ratio = 0.8
 
 # Iterate through each class (fields and roads)
-for class_name in ['ff', 'rr']:
+for class_name in ['field', 'road']:
     class_folder = os.path.join(dataset_folder, class_name)
     image_files = os.listdir(class_folder)
     random.shuffle(image_files)
