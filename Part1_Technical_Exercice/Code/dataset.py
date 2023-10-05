@@ -3,20 +3,18 @@ import torch
 from torchvision import datasets, transforms
 
 class CustomDataset:
-    def __init__(self, data_dir, mean, std):
+    def __init__(self, data_dir):
         # Define data transformations for training and validation sets
         self.data_transforms = {
             'train': transforms.Compose([
                 transforms.Resize((224, 224)),  # Resize images to 224x224 pixels
                 #transforms.RandomHorizontalFlip(),  # Randomly flip images horizontally (optional)
                 transforms.ToTensor(),  # Convert images to PyTorch tensors
-                #transforms.Normalize(mean, std)  # Normalize the pixel values (optional)
             ]),
             'val': transforms.Compose([
                 transforms.Resize((224, 224)),  # Resize images to 224x224 pixels
                 #transforms.CenterCrop(224),  # Center crop images to 224x224 pixels (optional)
                 transforms.ToTensor(),  # Convert images to PyTorch tensors
-                #transforms.Normalize(mean, std)  # Normalize the pixel values (optional)
             ]),
         }
 
