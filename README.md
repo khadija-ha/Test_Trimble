@@ -1,1 +1,9 @@
-#TEST##
+Dependencies
+python
+torch
+torchvision
+numpy
+nvidia-tensorrt
+onnx
+opencv-python
+visdom
