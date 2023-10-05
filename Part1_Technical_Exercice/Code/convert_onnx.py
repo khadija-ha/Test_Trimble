@@ -16,7 +16,7 @@ def convert():
     batch_size = 2
     input_tensor = torch.randn(batch_size, 3, 224, 224)  
     # Define the path to save the ONNX model
-    onnx_path =  '/data1/Test_Trimble/Part1_Technical_Exercice/Models/model_trimbel.onnx'
+    onnx_path =  '/data1/Test_Trimble/Part1_Technical_Exercice/Models/model_trimble.onnx'
     # Export the custom model to ONNX format
     torch.onnx.export(
         custom_model.model,
